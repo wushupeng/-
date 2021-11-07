@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='btn_container'>
+        <button id='btn'>button</button>
+    </div>
+    <script>
+        let g = function(id){
+            return document.getElementById(id);
+        }
+        // g('btn').onclick = function(){
+        //     g('btn_container').innerHTML = '触发了点击事件';//这句话会把button覆盖掉，但是button上的点击事件却没有释放内存，造成了内存泄漏
+        // }
+        //委托给父元素,经过console.log查看 onclick还是存在，只不过只跟随父元素了，相比会覆盖多个子元素的onclick事件，节约了内存。
+        g('btn_container').onclick = function(e) {
+            let target = e&& e.target ||window.event.srcElement;
+            if(target.id==='btn'){
+                g('btn_container').innerHTML = '触发了点击事件'
+                console.log(g('btn_container').onclick)
+            }
+        }
+    </script>
+</body>
+</html>
