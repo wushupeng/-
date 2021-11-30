@@ -77,3 +77,8 @@ viewCommand({
     command:'display',
     param:['product',productData,'product']
 })
+
+//命令对象：{command:'',param:[]}
+//发送者 就是excute方法。
+//接收者：就是Action里的方法，
+//发送者和接收者进行解耦
