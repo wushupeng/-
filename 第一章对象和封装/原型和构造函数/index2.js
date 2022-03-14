@@ -25,9 +25,9 @@ XYZ.prepareTask = function(ID,Label){
 XYZ.output = function(){
     console.log(this.ID)
 }
-console.log(XYZ);
+console.log('#XYZ',XYZ);
 XYZ.prepareTask(1,'test')
-console.log(XYZ);
+console.log('#XYZ1',XYZ);
 console.log(Task);
 Task.outputID();
 console.log(this);
